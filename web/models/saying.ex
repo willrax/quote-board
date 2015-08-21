@@ -25,6 +25,6 @@ defmodule Echo.Saying do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
-    |> validate_unique(:body, on: Echo.Saying)
+    |> validate_unique(:body, on: Echo.Repo)
   end
 end

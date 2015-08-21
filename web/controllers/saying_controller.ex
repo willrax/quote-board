@@ -44,7 +44,6 @@ defmodule Echo.SayingController do
 
   def delete(conn, %{"id" => id}) do
     saying = Repo.get!(Saying, id)
-
     saying = Repo.delete!(saying)
     render(conn, "show.json", saying: saying)
   end
