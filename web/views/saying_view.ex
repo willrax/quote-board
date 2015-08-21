@@ -6,6 +6,15 @@ defmodule Echo.SayingView do
   end
 
   def render("saying.json", %{saying: saying}) do
-    %{id: saying.id, body: saying.body, name: saying.name}
+    %{id: encode_id(saying.id), body: saying.body, name: saying.name}
+  end
+
+  defp encode_id(id) do
+    salt = Hashids.new([
+      salt: "12345678",
+      min_len: 5,
+    ])
+
+    Hashids.encode(salt, id)
   end
 end

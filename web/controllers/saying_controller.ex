@@ -23,7 +23,9 @@ defmodule Echo.SayingController do
     end
   end
 
-  def show(conn, %{"id" => id}) do
+  def show(conn, %{"id" => cipher}) do
+    {:ok, [id]} = decode_cipher(cipher)
+
     saying = Repo.get!(Saying, id)
     render conn, "show.json", saying: saying
   end
@@ -46,5 +48,13 @@ defmodule Echo.SayingController do
     saying = Repo.get!(Saying, id)
     saying = Repo.delete!(saying)
     render(conn, "show.json", saying: saying)
+  end
+
+  defp decode_cipher(cipher) do
+    salt = Hashids.new([
+      salt: "12345678",
+      min_len: 5,
+    ])
+    Hashids.decode(salt, cipher)
   end
 end

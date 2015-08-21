@@ -35,6 +35,7 @@ defmodule Echo.Mixfile do
      {:phoenix_html, "~> 1.1"},
      {:phoenix_live_reload, "~> 0.4", only: :dev},
      {:cowboy, "~> 1.0"},
-     {:cors_plug, "~> 0.1.3"}]
+     {:cors_plug, "~> 0.1.3"},
+     {:hashids, "~> 2.0"}]
   end
 end
