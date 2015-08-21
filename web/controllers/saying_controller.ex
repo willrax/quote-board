@@ -23,6 +23,11 @@ defmodule Echo.SayingController do
     end
   end
 
+  def show(conn, %{"id" => id}) do
+    saying = Repo.get!(Saying, id)
+    render conn, "show.json", saying: saying
+  end
+
   def update(conn, %{"id" => id, "saying" => saying_params}) do
     saying = Repo.get!(Saying, id)
     changeset = Saying.changeset(saying, saying_params)
