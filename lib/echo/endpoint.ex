@@ -31,6 +31,6 @@ defmodule Echo.Endpoint do
     key: "_echo_key",
     signing_salt: "SuzA1YXz"
 
-  plug CORSPlug, [origin: "http://localhost:4200"]
+  plug CORSPlug, [origin: "http://as-quoted.herokuapp.com"]
   plug :router, Echo.Router
 end
