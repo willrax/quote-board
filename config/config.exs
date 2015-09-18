@@ -9,8 +9,8 @@ use Mix.Config
 config :echo, Echo.Endpoint,
   url: [host: "localhost"],
   root: Path.dirname(__DIR__),
-  secret_key_base: "jskr9PnPBTKj2b2FlYLm4nTJDL3uUZuDWZx88g62RdyRSPUyO0iSizu5qtMlJUJi",
-  debug_errors: false,
+  secret_key_base: "/2WslM7gmpEv2BkW9CnZlm/3A2uR9Cgipl1R2TMqm8ysbUkTfiMgEadxpst4wIbo",
+  render_errors: [accepts: ~w(html json)],
   pubsub: [name: Echo.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
@@ -22,3 +22,13 @@ config :logger, :console,
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
+
+# Configure phoenix generators
+config :phoenix, :generators,
+  migration: true,
+  binary_id: false
+
+# Configure phoenix generators
+config :phoenix, :generators,
+  migration: true,
+  binary_id: false

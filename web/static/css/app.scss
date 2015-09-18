@@ -1,0 +1,17 @@
+@import 'variables';
+@import 'bower_components/bootstrap-sass/assets/stylesheets/bootstrap';
+
+.center-column {
+  @extend .col-md-6;
+  @extend .col-md-offset-3;
+}
+
+body {
+  padding-top: 200px;
+}
+
+blockquote {
+  footer {
+    margin-top: 20px;
+  }
+}

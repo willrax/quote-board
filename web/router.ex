@@ -1,14 +1,16 @@
 defmodule Echo.Router do
   use Echo.Web, :router
 
-  pipeline :api do
-    plug :accepts, ["json"]
+  pipeline :browser do
+    plug :accepts, ["html"]
   end
 
-  scope "/api", Echo do
-    pipe_through :api
+  scope "/", Echo do
+    pipe_through :browser
 
-    options  "/sayings", SayingController, :options
-    resources "/sayings", SayingController
+    get "/", SayingsController, :random
+    get "/quotes/new", SayingsController, :new
+    get "/quotes/:cypher", SayingsController, :show
+    post "/", SayingsController, :create
   end
 end

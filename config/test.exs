@@ -9,11 +9,13 @@ config :echo, Echo.Endpoint,
 # Print only warnings and errors during test
 config :logger, level: :warn
 
-# Configure your database
+# Set a higher stacktrace during test
+config :phoenix, :stacktrace_depth, 20
+
 config :echo, Echo.Repo,
-  pool: Ecto.Adapters.SQL.Sandbox,
   adapter: Ecto.Adapters.Postgres,
   username: "echo",
   password: "",
   database: "echo_test",
-  size: 1 # Use a single connection for transactional tests
+  hostname: "localhost",
+  pool: Ecto.Adapters.SQL.Sandbox
