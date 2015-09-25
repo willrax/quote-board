@@ -1,6 +1,10 @@
 use Mix.Config
 
-import_config "prod.secret.exs"
+config :echo, Echo.Endpoint,
+  http: [port: System.get_env("PORT")],
+  url: [scheme: "https", host: System.get_env("HOST"), port: 443],
+  cache_static_manifest: "priv/static/manifest.json",
+  force_ssl: [rewrite_on: [:x_forwarded_proto]]
 
 config :logger, level: :info
 
