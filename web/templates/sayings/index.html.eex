@@ -1,0 +1,12 @@
+<%= for saying <- @sayings do %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div>
+        <blockquote>
+          <%= saying.body %>
+          <footer><%= link saying.name, to: sayings_path(@conn, :show, encode_cipher(saying)) %></footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+<% end %>

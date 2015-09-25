@@ -10,6 +10,11 @@ defmodule Echo.SayingsController do
     render conn, saying: saying
   end
 
+  def index(conn, _params) do
+    sayings = Repo.all(Saying)
+    render conn, sayings: sayings
+  end
+
   def show(conn, %{"cypher" => cipher}) do
     {:ok, [id]} = Saying.decode_cipher(cipher)
 
