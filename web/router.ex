@@ -3,6 +3,7 @@ defmodule Echo.Router do
 
   pipeline :browser do
     plug :accepts, ["html"]
+    plug Echo.Plugs.Authenticate
   end
 
   scope "/", Echo do
