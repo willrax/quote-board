@@ -10,7 +10,6 @@ defmodule Echo.Router do
     pipe_through :browser
 
     get "/", SayingsController, :random
-    get "/quotes", SayingsController, :index
     get "/quotes/new", SayingsController, :new
     get "/quotes/:cypher", SayingsController, :show
     post "/", SayingsController, :create

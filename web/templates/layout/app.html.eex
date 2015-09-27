@@ -17,7 +17,6 @@
         </div>
 
         <ul class="nav navbar-nav">
-          <li> <%= link "All", to: sayings_path(@conn, :index) %> </li>
           <li> <%= link "New", to: sayings_path(@conn, :new) %> </li>
         </ul>
       </div>
